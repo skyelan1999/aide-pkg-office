@@ -1,0 +1,14 @@
+{
+  "version": "1.1.0",
+  "originalMarketZIPUnchanged": true,
+  "zipSHA256": "34b4d01a5714cad3530471b3de86c4d81eee6ca0452b85ba149b31b8ad94553f",
+  "zipBytes": 4287,
+  "toolRegistration": "PASS four tools; expected native executor errors",
+  "nativeTests": "PASS go test -race ./internal/server -run ^(TestOfficeCreateAndXlsxEdit|TestOfficeNativeCommentsRoundTrip|TestOfficeNativeCommentsReferenceReadOnly|TestOfficeXlsxReferencePermissions)$ -count=1 (4 tests)",
+  "platforms": {
+    "linux": "PASS",
+    "macos": "NOT_RUN",
+    "windows": "NOT_RUN"
+  },
+  "realSSH": "NOT_RUN"
+}

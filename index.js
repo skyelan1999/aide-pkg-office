@@ -13,7 +13,16 @@ module.exports = {
         properties: {
           path: { type: 'string', description: '自动系统文档目录的相对路径；未绑定时相对工作区，后缀与格式一致' },
           format: { type: 'string', enum: ['docx', 'xlsx', 'pptx'] },
-          content: { type: 'object' },
+          content: {
+            type: 'object', additionalProperties: false,
+            description: '只填写当前 format 对应的字段：docx 用 title/blocks，xlsx 用 sheets，pptx 用 slides。不要用 paragraphs、data 或 content 替代正文键；生成后用 read_file 从来源 system-docs 读回核对。',
+            properties: {
+              title: {type:'string', description:'DOCX 主标题'},
+              blocks: {type:'array', description:'DOCX 正文区块，例如 [{type:"paragraph",text:"正文"}]', items:{type:'object', properties:{type:{type:'string',enum:['heading','paragraph','table']},text:{type:'string'},level:{type:'integer',minimum:1,maximum:9},rows:{type:'array',items:{type:'array',items:{type:['string','number','boolean','null']}}}},additionalProperties:false}},
+              sheets: {type:'array',minItems:1,description:'XLSX 工作表，例如 [{name:"数据",rows:[["名称","数量"],["样品",2]]}]',items:{type:'object',properties:{name:{type:'string'},rows:{type:'array',items:{type:'array',items:{type:['string','number','boolean','null']}}}},additionalProperties:false}},
+              slides: {type:'array',minItems:1,description:'PPTX 幻灯片，例如 [{title:"标题",body:"正文"}]',items:{type:'object',properties:{title:{type:'string'},body:{type:'string'}},additionalProperties:false}}
+            }
+          },
         },
       },
       handler() {

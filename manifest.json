@@ -1,8 +1,8 @@
 {
   "id": "office",
   "name": "Office 文档",
-  "description": "Collabora Online Office 预览、编辑和保存，开放 AI 文档读取、检索、精确修改和批注工具",
-  "version": "1.2.0",
+  "description": "Aide 内置离线 Office 预览、编辑和保存，AI 文档读取、检索、精确修改和批注；无需额外服务设置",
+  "version": "1.3.0",
   "author": "aide",
   "main": "index.js",
   "enabled": true,
@@ -37,33 +37,5 @@
       "kind": "write",
       "readonlyDefault": false
     }
-  ],
-  "settingsSchema": {
-    "type": "object",
-    "title": "Collabora Online",
-    "description": "连接独立 Collabora 服务。启用或更改服务地址后刷新 Aide 页面，使浏览器应用新的编辑器来源设置。",
-    "properties": {
-      "collaboraEnabled": {
-        "type": "boolean",
-        "title": "启用 Collabora Online",
-        "default": false
-      },
-      "collaboraUrl": {
-        "type": "string",
-        "title": "浏览器可访问的 Collabora 地址",
-        "description": "例如 https://office.example.com"
-      },
-      "collaboraInternalUrl": {
-        "type": "string",
-        "title": "Aide 后端访问的 Collabora 地址",
-        "description": "留空使用浏览器地址；容器内可填 http://collabora:9980"
-      },
-      "collaboraCallbackUrl": {
-        "type": "string",
-        "title": "Collabora 可访问的 Aide 地址",
-        "description": "例如 https://aide.example.com；本地测试可用 http://host.docker.internal:19979"
-      }
-    },
-    "additionalProperties": false
-  }
+  ]
 }

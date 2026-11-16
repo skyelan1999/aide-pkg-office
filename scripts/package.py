@@ -20,7 +20,7 @@ bundle = out / ("aide-pkg-office-v" + manifest["version"] + ".zip")
 if bundle.exists():
     raise SystemExit("Refusing to overwrite an existing package")
 with zipfile.ZipFile(bundle, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=9) as archive:
-    for name in ["LICENSE", "README.md", "index.js", "manifest.json", "test.js", "docs/reviews/2026-11-14-common-workflow.md"]:
+    for name in ["LICENSE", "README.md", "index.js", "manifest.json", "test.js", "docs/reviews/2026-11-14-common-workflow.md", "docs/reviews/2026-11-16-collabora-integration.md", "docs/release-verification-1.2.0.json"]:
         item = zipfile.ZipInfo(name, (2026, 11, 14, 0, 0, 0))
         item.compress_type = zipfile.ZIP_DEFLATED
         item.external_attr = 0o100644 << 16

@@ -1,0 +1,12 @@
+{
+  "version": "1.2.0",
+  "hostCapability": "office-collabora-v1",
+  "minimumHostVersion": "0.1.19.0 RC2",
+  "hostBase": "da8fdc95c7bb432c8a29aa45d13e55635e480b7f",
+  "pluginRegistration": "PASS six native-backed tools",
+  "packageInstallation": "PASS actual POST /api/plugins/bundle HTTP 201 on isolated host",
+  "nativeAI": "PASS DOCX/XLSX/PPTX read/edit, active/idle leases, native tool dispatch and sandbox",
+  "browser": "PASS Collabora CODE 26.04.6.1 and Chromium DOCX/XLSX/PPTX edit/save/readback, selected text and attachment, read-only reference",
+  "notRun": ["paid live model", "enterprise Collabora subscription/SLA/capacity", "native Windows/macOS shell", "legacy/ODF roundtrip"],
+  "packageIntegrity": "Exact ZIP and SHA256SUMS are release assets; marketplace must use identical bytes"
+}

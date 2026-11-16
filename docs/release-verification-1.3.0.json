@@ -1,0 +1,38 @@
+{
+  "status": "functional_checks_passed",
+  "pluginVersion": "1.3.0",
+  "requiredHostCapability": "office-offline-v1",
+  "minAideVersion": "0.1.19.0 RC2",
+  "hostSourceCommit": "4ae9b7d8135b80974ee7f813320dd7a1bdec3d7e",
+  "hostPR": "https://github.com/skyelan1999/aide/pull/938",
+  "officeSettingsRequired": false,
+  "independentPluginService": false,
+  "observedFunctionalChecks": [
+    "Actual isolated ARM64 DOCX/XLSX/PPTX preview/edit/save and disk readback",
+    "Fresh no-Office-settings Chinese DOCX rendering and automatic engine start",
+    "No external network route; no browser external requests",
+    "Native dispatcher/sandbox and stale-hash guards",
+    "Crash restart revokes old session; graceful shutdown cleans owned child/callback/temp files",
+    "Pinned ARM64/AMD64 archive and executable integrity, offline staging",
+    "Final-source race test binary executed inside the offline candidate: native Office dispatcher/sandbox plus six Aide-only boundary/lifecycle cases passed"
+  ],
+  "hostFullVerification": {
+    "requiredBeforePublication": true,
+    "receipt": "https://github.com/skyelan1999/aide/pull/938"
+  },
+  "finalZipInstallationAndUpgrade": {
+    "requiredBeforePublication": true,
+    "receipt": "https://github.com/skyelan1999/aide/issues/937"
+  },
+  "notRun": [
+    "AMD64 engine execution",
+    "native Windows/macOS runtime",
+    "SSH",
+    "enterprise capacity/SLA",
+    "paid model inference"
+  ],
+  "productionReplaced": false,
+  "packageDigestLocation": "Release SHA256SUMS asset; no self-referential digest inside ZIP",
+  "scope": "Completed plugin-source registration and host functional acceptance; publication gates recorded externally",
+  "hostAcceptanceImageID": "sha256:2c66af4c6e4bc223ff228dc241c65c09e5bb0bda555a94ea2d49baf041ef50f9"
+}

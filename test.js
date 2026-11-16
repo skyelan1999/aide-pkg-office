@@ -21,6 +21,6 @@ assert.equal(content.properties.slides.items.properties.body.type,'string');
 assert.throws(() => tools[3].handler({}), /原生工作区执行器/);
 console.log('office plugin registration PASS');
 
-assert.equal(manifest.settingsSchema.properties.collaboraEnabled.type,'boolean');
+assert.equal(manifest.settingsSchema,undefined,'Built-in Office must not require service settings');
 assert.equal(manifest.tools.find(t=>t.name==='office_document_edit').kind,'write');
 assert.deepEqual(tools[2].parameters.required,['path','hash','changes']);

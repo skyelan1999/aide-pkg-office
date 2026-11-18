@@ -1,12 +1,14 @@
 # Office · Aide Office 文档
 
+> 独立 Office 插件已永久退役。后续文档版式预览和格式兼容由 Aide 内置 LibreOffice 承接。此仓库保留历史源码、许可证和发行包，以下内容记录 1.3.0 的历史行为。
+
 Aide `office` 1.3.0，适配层 MIT 许可。配合包含内置引擎的完整 Aide 运行包使用，旧版升级保留现有文件。
 
 注册 `office_create`、`office_comments`、`office_comment_edit`、`office_document_search`、`office_document_read`、`office_document_edit` 六项工具。支持通过宿主生成 DOCX/XLSX/PPTX、读取或按锚点修改 DOCX 批注，以及原文/RAG 片段检索；相关文件创建、编辑与来源权限沿用 Aide 现有审批通道。RAG 使用本地检索，不承诺 OCR 或整份文档已读。
 
 必须配合 Aide 原生 Office 工作区执行器及宿主 Python Office 环境（python-docx、openpyxl、python-pptx 等）；Node 入口负责协议注册，不能单独执行 Office 操作。安装 ZIP 不包含宿主执行器或 Python 依赖。需要 Aide 0.1.19.0 RC2 或更新版本，且宿主必须具备 `office-offline-v1` 能力。缺少该能力的旧同版本宿主会被市场拒绝，请先更新到包含本次集成的 Aide main 源码构建或后续正式版本。Linux 为本次验证环境，Windows/macOS 和实际 SSH 未实测。
 
-从 [v1.3.0 Release](https://github.com/skyelan1999/aide-pkg-office/releases/tag/v1.3.0) 下载 ZIP 与 SHA256SUMS，校验后导入 Aide；也可通过[插件市场](https://skyelan1999.github.io/aide-pkg-shop/)安装。相同 ID/版本无需重复安装。
+[v1.3.0 Release](https://github.com/skyelan1999/aide-pkg-office/releases/tag/v1.3.0) 保留当时的 ZIP 与 SHA256SUMS，供历史版本核对。
 
 ```sh
 sha256sum -c SHA256SUMS
@@ -28,7 +30,7 @@ XLSX 用 `content.sheets=[{name,rows:[[...]]}]`，PPTX 用 `content.slides=[{tit
 
 1.1.1 在工具定义中列出上述字段。拒绝未知字段、防止静默丢正文的生成器修复属于 Aide [#892](https://github.com/skyelan1999/aide/issues/892)，需要包含该修复的宿主源码构建；只更新插件不会更新旧宿主的 Python 生成器。此修复不覆盖已有文档，不新增外部调用。
 
-新版本包由 `python3 scripts/package.py <输出目录>` 构建；先运行 `node test.js`。旧 `packages/v1.1.0` 与其摘要保留。
+归档构建脚本为 `python3 scripts/package.py <输出目录>`，原入口测试为 `node test.js`。旧 `packages/v1.1.0` 与其摘要保留。
 
 
 ## 内置离线 Office（1.3.0）
